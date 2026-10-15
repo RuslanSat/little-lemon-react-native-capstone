@@ -1,0 +1,10 @@
+const assert=require('node:assert/strict');
+const {menu,validProfile,filterMenu}=require('./menu.cjs');
+assert.equal(validProfile({firstName:'',email:'a@example.com'}),false);
+assert.equal(validProfile({firstName:'A',email:'invalid'}),false);
+assert.equal(validProfile({firstName:' A ',email:'a@example.com'}),true);
+assert.equal(filterMenu(menu,'LEMON','All').length,4);
+assert.equal(filterMenu(menu,'','Mains').length,2);
+assert.equal(filterMenu(menu,'cake','Desserts')[0].name,'Lemon Dessert');
+assert.equal(filterMenu(menu,'cake','Drinks').length,0);
+console.log('Profile validation and menu filtering checks passed.');
