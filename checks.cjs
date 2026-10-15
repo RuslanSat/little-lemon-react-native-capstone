@@ -7,4 +7,5 @@ assert.equal(filterMenu(menu,'LEMON','All').length,4);
 assert.equal(filterMenu(menu,'','Mains').length,2);
 assert.equal(filterMenu(menu,'cake','Desserts')[0].name,'Lemon Dessert');
 assert.equal(filterMenu(menu,'cake','Drinks').length,0);
+assert.deepEqual(filterMenu(menu,'',['Mains','Desserts']).map(i=>i.name),['Grilled Fish','Pasta','Lemon Dessert']);
 console.log('Profile validation and menu filtering checks passed.');
